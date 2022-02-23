@@ -1,5 +1,5 @@
 import IconStar from "../icons/Star";
-import { ResultType } from "../types/apiTypes";
+import { ResultType } from "../../types/apiTypes";
 
 interface ResultsProps {
     items: Array<ResultType>;
@@ -19,18 +19,21 @@ const Results: React.FC<ResultsProps> = ( { items } ): JSX.Element => {
                 </thead>
                 <tbody>
                 {items.map((result: ResultType) => (
-                    <tr className="py-4 text-gray-500" key={result.id}>
-                        <td className="px-3 py-2 truncate">{result.full_name}</td>
-                        <td className="px-3 py-2 truncate">{result.owner.login}</td>
-                        <td className="px-3 py-2 flex items-center space-x-1">
-                            <IconStar />
-                            <span>{result.stargazers_count}</span>
+                    <tr className="py-4 text-gray-500 text-sm" key={result.id}>
+                        <td className="px-3 py-3 truncate font-semibold">{result.full_name}</td>
+                        <td className="px-3 py-3 truncate">{result.owner.login}</td>
+                        <td className="px-3 py-3">
+                            <div className="flex items-center h-full space-x-1">
+                                <IconStar />
+                                <span>{result.stargazers_count}</span>
+                            </div>
                         </td>
-                        <td className="px-3 py-2">{result.created_at}</td>
+                        <td className="px-3 py-3">{result.created_at}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            <p className="text-gray-400 text-sm pt-4 px-3">Showing 10 results</p>
         </div>
     );
 }

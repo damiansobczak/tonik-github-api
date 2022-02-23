@@ -1,6 +1,4 @@
-import { ResultsType } from "../types/apiTypes";
-
-export const fetchRepositories = async (repoName: string = '', perPage: number = 10, sort: string = '') => {
+export const fetchRepositories = async (repoName: string = 'tonik/theme', perPage: number = 10, sort: string = '') => {
     const response = await fetch(`https://api.github.com/search/repositories?q=${repoName}&sort=${sort}&per_page=${perPage}`);
 
     if (!response.ok) {

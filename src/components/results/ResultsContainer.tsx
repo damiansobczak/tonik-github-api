@@ -1,23 +1,26 @@
 import { useQuery } from "react-query";
-import { fetchRepositories } from "../queries/repositories";
+import { fetchRepositories } from "../../queries/repositories";
 import ResultsSkeleton from "./ResultsSkeleton";
 import ResultsError from "./ResultsError";
 import Results from "./Results";
+import ResultsNone from "./ResultsNone";
 
 const ResultsContainer = () => {
-    const { isLoading, error, data } = useQuery('repositories', () =>
-        fetchRepositories('tonik')
-    );
+    const { isLoading, error, data, refetch } = useQuery('repositories', () => fetchRepositories(), {enabled: false});
 
     if (isLoading) {
         return <ResultsSkeleton />
     }
 
-    if (error || !data.items) {
+    if (error) {
         return <ResultsError />
     }
 
-    return <Results items={data.items}/>
+    if (!data || !data?.items) {
+        return <ResultsNone />
+    }
+
+    return <Results items={data?.items}/>
 }
 
 export default ResultsContainer;
