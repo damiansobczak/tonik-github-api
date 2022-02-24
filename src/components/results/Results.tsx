@@ -1,5 +1,6 @@
 import IconStar from "../icons/Star";
 import { ResultType } from "../../types/apiTypes";
+import Pagination from "../pagination/Pagination";
 
 interface ResultsProps {
     items: Array<ResultType>;
@@ -33,7 +34,7 @@ const Results: React.FC<ResultsProps> = ( { items } ): JSX.Element => {
                 ))}
                 </tbody>
             </table>
-            <p className="text-gray-400 text-sm pt-4 px-3">Showing 10 results</p>
+            <Pagination />
         </div>
     );
 }
