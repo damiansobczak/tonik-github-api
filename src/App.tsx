@@ -4,6 +4,7 @@ import { QueryClientProvider, QueryClient} from "react-query";
 import ResultsContainer from "./components/results/ResultsContainer";
 import Search from "./components/search/Search";
 import {SearchProvider} from "./context/search";
+import Pagination from "./components/pagination/Pagination";
 
 function App() {
 
