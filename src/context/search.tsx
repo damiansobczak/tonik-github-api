@@ -29,7 +29,7 @@ function searchReducer(state: State, action: Action): State {
 }
 
 function SearchProvider({children}: SearchProviderProps) {
-    const [state, dispatch] = React.useReducer(searchReducer, {search: '', page: 1, sort: '', show: 2})
+    const [state, dispatch] = React.useReducer(searchReducer, {search: '', page: 1, sort: '', show: 5})
     const value = {state, dispatch}
     return (
         <SearchStateContext.Provider value={value}>

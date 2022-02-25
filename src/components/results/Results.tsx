@@ -1,6 +1,7 @@
 import IconStar from "../icons/Star";
 import { ResultType } from "../../types/apiTypes";
 import Pagination from "../pagination/Pagination";
+import { formatDate } from "../../utils/utils";
 
 interface ResultsProps {
     items: Array<ResultType>;
@@ -29,7 +30,7 @@ const Results: React.FC<ResultsProps> = ( { items } ): JSX.Element => {
                                 <span>{result.stargazers_count}</span>
                             </div>
                         </td>
-                        <td className="px-3 py-3">{result.created_at}</td>
+                        <td className="px-3 py-3">{formatDate(result.created_at)}</td>
                     </tr>
                 ))}
                 </tbody>
