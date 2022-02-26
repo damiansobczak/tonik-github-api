@@ -14,16 +14,14 @@ const ResultsSkeleton = () => {
                 </thead>
                 <tbody>
                 <tr className="py-4 text-gray-500">
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
+                    {[...Array(4)].map((el, index) => (
+                        <td className="px-3 py-2" key={index}><div className="w-full h-6 rounded animate-shine" style={{background: "linear-gradient(90deg, #f3f4f6 33%, #fff 66%, #f3f4f6 100%)" }}></div></td>
+                    ))}
                 </tr>
                 <tr className="py-4 text-gray-500">
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
-                    <td className="px-3 py-2"><div className="w-full h-6 rounded bg-gray-100"></div></td>
+                    {[...Array(4)].map((el, index) => (
+                        <td className="px-3 py-2" key={index}><div className="w-full h-6 rounded animate-shine" style={{background: "linear-gradient(90deg, #f3f4f6 33%, #fff 66%, #f3f4f6 100%)" }}></div></td>
+                    ))}
                 </tr>
                 </tbody>
             </table>
