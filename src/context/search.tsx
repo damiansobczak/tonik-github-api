@@ -20,7 +20,7 @@ function searchReducer(state: State, action: Action): State {
             return {...state, page: state.page > 0 ? state.page - 1 : state.page}
         }
         case 'search/pagination/show': {
-            return {...state, show: action.payload}
+            return {...state, show: action.payload, page: 1}
         }
         default: {
             return state;

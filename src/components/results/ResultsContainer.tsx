@@ -8,13 +8,13 @@ import {useSearchQuery} from "../../hooks/searchHook";
 
 const ResultsContainer = () => {
     const { state } = useSearch();
-    const { isLoading, isFetching, error, data, refetch } = useSearchQuery(state.search, state.show, state.sort, state.page);
+    const { isFetching, error, data, refetch } = useSearchQuery(state.search, state.show, state.sort, state.page);
 
     useEffect(() => {
         if (state.search) {
             refetch();
         }
-    }, [state.search, state.page, state.show, state.sort]);
+    }, [state.search, state.page, state.show, state.sort, refetch]);
 
     if (isFetching) {
         return <ResultsSkeleton />
