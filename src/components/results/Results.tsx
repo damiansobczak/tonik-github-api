@@ -1,13 +1,13 @@
 import IconStar from "../icons/Star";
 import { ResultType } from "../../types/apiTypes";
-import Pagination from "../pagination/Pagination";
 import { formatDate } from "../../utils/utils";
 
 interface ResultsProps {
     items: Array<ResultType>;
+    children?: JSX.Element | JSX.Element[];
 }
 
-const Results: React.FC<ResultsProps> = ( { items } ): JSX.Element => {
+const Results: React.FC<ResultsProps> = ( { items, children } ): JSX.Element => {
     return (
         <div className="p-5 bg-white rounded-lg shadow-xl w-full">
             <table className="table-fixed w-full">
@@ -35,7 +35,7 @@ const Results: React.FC<ResultsProps> = ( { items } ): JSX.Element => {
                 ))}
                 </tbody>
             </table>
-            <Pagination />
+            {children}
         </div>
     );
 }
