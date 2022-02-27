@@ -5,9 +5,7 @@ import { SearchProvider } from "../../context/search";
 
 test('renders pagination buttons correctly', () => {
     render(
-        <SearchProvider>
-           <Pagination showPrevious={true} showNext={true} next={() => {}} previous={() => {}} />
-        </SearchProvider>
+        <Pagination showPrevious={true} showNext={true} next={() => {}} previous={() => {}} />
     );
     const nextBtn = screen.getByText(/next/i);
     const previousBtn = screen.getByText(/previous/i);
@@ -19,9 +17,7 @@ test('prevents from increment pagination when button disabled', () => {
     const increment = jest.fn();
 
     render(
-        <SearchProvider>
-            <Pagination showPrevious={true} showNext={false} next={increment} previous={() => {}} />
-        </SearchProvider>
+        <Pagination showPrevious={true} showNext={false} next={increment} previous={() => {}} />
     );
 
     const nextBtn = screen.getByText(/next/i);
@@ -37,9 +33,7 @@ test('allow to increment pagination when button enabled', () => {
     const increment = jest.fn();
 
     render(
-        <SearchProvider>
-            <Pagination showPrevious={true} showNext={true} next={increment} previous={() => {}} />
-        </SearchProvider>
+        <Pagination showPrevious={true} showNext={true} next={increment} previous={() => {}} />
     );
 
     const nextBtn = screen.getByText(/next/i);
