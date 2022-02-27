@@ -46,6 +46,7 @@ Since i won't be able to work on this task (I'm currently working on 2 big proje
   - In some places i did not check accessibility features like working with keyboard. I decided to develop select that is showing results per page "by hand". Switching to library like RadixUI or something similar would be necessary.
 - Unit or e2e tests
     - I did not write any test for this task. My go to library for tests is Cypress as i'm writing in this library on daily basis in my current job.
+    - > Over the weekend I managed to refactor **Pagination** component and add example unit test. Since this changed was made after my email notifying you that i finished my task i felt like i need to inform you about it. [Pull request with change](https://github.com/damiansobczak/tonik-github-api/pull/7). As you can see in the PR i needed to refactor component in order to be testable. It was strictly coupled with Context so I switch to composition over inheritance approach.
 - Sorting by column
   - I only prepare proper context api structure for handling sorting but i did not implement it due to the lack of time.
 - Showing results improvements
