@@ -5,9 +5,11 @@ import Results from "./Results";
 import ResultsNone from "./ResultsNone";
 import {useSearch} from "../../context/search";
 import {useSearchQuery} from "../../hooks/searchHook";
+import Pagination from "../pagination/Pagination";
+import Show from "../show/Show";
 
 const ResultsContainer = () => {
-    const { state } = useSearch();
+    const { state, dispatch } = useSearch();
     const { isFetching, error, data, refetch } = useSearchQuery(state.search, state.show, state.sort, state.page);
 
     useEffect(() => {
@@ -28,7 +30,17 @@ const ResultsContainer = () => {
         return <ResultsNone />
     }
 
-    return <Results items={data?.items}/>
+    return (
+        <Results items={data?.items}>
+            <Pagination
+                showPrevious={!isFetching && (state.page > 1)}
+                showNext={!isFetching && state.page * state.show < data.total_count}
+                next={() => dispatch({type: 'search/pagination/increment'})}
+                previous={() => dispatch({type: 'search/pagination/decrement'})}>
+                <Show />
+            </Pagination>
+        </Results>
+    )
 }
 
 export default ResultsContainer;
